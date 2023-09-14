@@ -62,18 +62,18 @@ export class Mediator extends EventManager {
     private outputPath: string;
     private ssrOutputPath: string;
 
-    constructor(rootDir: string, ssr = false) {
+    constructor(rootDir: string, ssr = false, outdir: string) {
         super();
         this.rootDir = rootDir;
         this.ssrEnabled = ssr;
-        this.outputPath = this.rootDir + "/.buchta/output/";
-        this.ssrOutputPath = this.rootDir + "/.buchta/output-ssr/";
+        this.outputPath = this.rootDir + `/${outdir}/output/`;
+        this.ssrOutputPath = this.rootDir + `/${outdir}/output-ssr/`;
     }
 
     prepare(directories = ["public"]) {
-        makeDir(this.rootDir + "/.buchta/output/");
+        makeDir(this.outputPath);
         if (this.ssrEnabled)
-            makeDir(this.rootDir + "/.buchta/output-ssr/");
+            makeDir(this.ssrOutputPath);
 
         let length = directories.length;
         for (let i = 0; i < length; i++) {

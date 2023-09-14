@@ -22,6 +22,7 @@ export interface BuchtaConfig {
     ssr?: boolean;
     dirs?: string[];
     plugins?: BuchtaPlugin[];
+    outdir?: string;
 }
 
 export class Buchta extends EventManager {
@@ -78,7 +79,7 @@ export class Buchta extends EventManager {
             this.config = config;
         }
 
-        this.builder = new Mediator(this.config?.rootDir ?? process.cwd(), this.config?.ssr ?? true);
+        this.builder = new Mediator(this.config?.rootDir ?? process.cwd(), this.config?.ssr ?? true, this.config?.outdir ?? '.buchta' );
     }
 
     async setup() {

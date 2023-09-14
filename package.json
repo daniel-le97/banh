@@ -1,17 +1,20 @@
 {
-  "name": "buchta",
-  "version": "0.5.100",
+  "name": "banh",
+  "version": "0.6.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Fire-The-Fox/buchta.git"
+    "url": "https://github.com/daniel-le97/buchta.git"
+  },
+  "scripts": {
+    "release": "npm publish"
   },
   "main": "src/buchta.ts",
   "module": "src/buchta.ts",
   "devDependencies": {
-    "bun-types": "^0.6.2"
+    "bun-types": "latest"
   },
   "contributors": [
-    "Ján Gajdoš <gajdos.jan77@gmail.com>"
+    "Daniel le <daniel97.le@gmail.com>"
   ],
   "description": "Bun-First integrable build step for frontend ",
   "keywords": [
