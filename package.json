@@ -1,9 +1,9 @@
 {
   "name": "banh",
-  "version": "0.6.2-beta.0",
+  "version": "0.6.2-beta.1",
   "repository": {
     "type": "git",
-    "url": "https://github.com/daniel-le97/buchta.git"
+    "url": "https://github.com/daniel-le97/banh.git"
   },
   "scripts": {
     "release": "bumpp && npm publish"
