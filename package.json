@@ -1,12 +1,12 @@
 {
   "name": "banh",
-  "version": "0.6.0",
+  "version": "0.6.2-beta.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/daniel-le97/buchta.git"
   },
   "scripts": {
-    "release": "npm publish"
+    "release": "bumpp && npm publish"
   },
   "main": "src/buchta.ts",
   "module": "src/buchta.ts",
@@ -30,5 +30,7 @@
     "ssr"
   ],
   "license": "BSD-2-Clause",
-  "dependencies": {}
+  "dependencies": {
+    "bumpp": "^9.2.0"
+  }
 }
