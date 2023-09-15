@@ -1,6 +1,6 @@
 {
   "name": "banh",
-  "version": "0.6.2-beta.2",
+  "version": "0.6.2-beta.3",
   "repository": {
     "type": "git",
     "url": "https://github.com/daniel-le97/banh.git"
@@ -11,8 +11,9 @@
   "main": "src/buchta.ts",
   "module": "src/buchta.ts",
   "devDependencies": {
+    "bumpp": "^9.2.0",
     "bun-types": "latest",
-    "bumpp": "^9.2.0"
+    "hookable": "^5.5.3"
   },
   "contributors": [
     "Daniel le <daniel97.le@gmail.com>"
@@ -30,5 +31,8 @@
     "build-tool",
     "ssr"
   ],
-  "license": "BSD-2-Clause"
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "consola": "^3.2.3"
+  }
 }
