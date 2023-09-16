@@ -3,6 +3,7 @@ import { basename } from "path";
 import { compile, preprocess} from "svelte/compiler";
 import { Buchta, BuchtaPlugin } from "../src/buchta.js";
 import { PluginBuilder } from "bun";
+import { Banh } from "../src/bahn.js";
 
 export function svelte(): BuchtaPlugin {
 
@@ -68,7 +69,7 @@ export function svelte(): BuchtaPlugin {
         name: "svelte",
         dependsOn: [],
         conflictsWith: [],
-        driver(this: Buchta) {
+        driver ( this: Buchta | Banh ) {
             this.addTranspiler("svelte", "js", svelteTranspile);
             this.addPageHandler("svelte", sveltePage);
             if (this.config?.ssr) {

@@ -1,6 +1,7 @@
 import { dirname, relative } from "path";
 import { Buchta, BuchtaPlugin } from "../src/buchta";
 import { writeFileSync } from "fs";
+import { Banh } from "../src/bahn.ts";
 
 export default function(): BuchtaPlugin {
     let filesToBundle: string[] = [];
@@ -8,7 +9,7 @@ export default function(): BuchtaPlugin {
 
     return {
         name: "customBundle",
-        driver(this: Buchta) {
+        driver ( this: Buchta | Banh ) {
             let rootDir = this.config?.rootDir;
 
             this.customBundle = {

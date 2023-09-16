@@ -2,6 +2,7 @@ import { readFileSync } from "fs";
 import { Buchta, BuchtaPlugin } from "../src/buchta";
 import { basename } from "path";
 import { renderToString } from "react-dom/server";
+import { Banh } from "../src/bahn.ts";
 
 interface ReactConfig {
     tsx?: boolean;
@@ -62,7 +63,7 @@ export function react(conf: ReactConfig): BuchtaPlugin {
         name: "react",
         dependsOn: [],
         conflictsWith: [],
-        driver(this: Buchta) {
+        driver ( this: Buchta | Banh ) {
             this.addTranspiler("jsx", "js", reactTranspile);
             this.addPageHandler("jsx", reactPage);
             if (conf.tsx) {

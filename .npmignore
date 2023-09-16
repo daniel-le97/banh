@@ -14,3 +14,5 @@ dist/
 .dccache
 buchta-vue.config.ts
 buchta.png
+playground/
+playground.ts

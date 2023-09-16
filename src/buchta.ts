@@ -8,12 +8,15 @@ import { TranspilerHandler } from "./build/transpiler";
 import { PageHandlerFunc, SSRPageHandlerFunc } from "./utils/pages";
 import { BunPlugin } from "bun";
 import devServer, { earlyHook } from "./server/dev.ts";
+import consola, { Consola, ConsolaInstance } from "consola";
+import { createConsola } from "consola/core";
+import { Banh } from "./bahn.ts";
 
 export interface BuchtaPlugin {
     name: string;
     dependsOn?: string[];
     conflictsWith?: string[];
-    driver: (this: Buchta) => void;
+    driver: (this: Buchta | Banh) => void;
 }
 
 export interface BuchtaConfig {
@@ -25,17 +28,33 @@ export interface BuchtaConfig {
     outdir?: string;
 }
 
+interface Pages {
+    html?: string;
+    route?: string;
+    func?: Function;
+    originalRoute?: string;
+    path?: string
+    dependencies?: string[]
+
+}
+interface logger {
+    info: (message: string) => void
+    warn: (message: string) => void
+    success: (message: string) => void
+    error: (message: string) => void
+}
+
 export class Buchta extends EventManager {
     [key: string]: any;
     // private for the functionality -> may have API
     private builder: Mediator;
     private pluginManager = new PluginManager(this);
-    private pages: any[] = [];
+    pages: Pages[] = [];
     private fileCache: Map<string, string> = new Map();
 
     // public for use
     config?: BuchtaConfig;
-    logger: any;
+    logger: ConsolaInstance
     earlyHook?: (build: Buchta) => void;
 
     // API
@@ -62,13 +81,15 @@ export class Buchta extends EventManager {
 
     constructor(quiet = false, config?: BuchtaConfig) {
         super();
-        this.logger = BuchtaLogger(quiet);
+        this.logger = consola
+        
 
         this.logger.info("Loading config");
 
         if (!config) {
             try {
                 this.config = require(process.cwd() + "/buchta.config.ts").default;
+                // @ts-ignore
                 this.logger("Config loaded without issues", "success");
             } catch (e: any) {
                 this.logger.error("Failed to load the config: ");

@@ -1,15 +1,16 @@
 import { BunPlugin } from "bun";
 import { Buchta, BuchtaPlugin } from "./buchta";
+import { Banh } from "./bahn.ts";
 
 export class PluginManager {
     private bundlerBunPlugins: BunPlugin[] = [];
     private serverBunPlugins: BunPlugin[] = [];
     private plugins: Map<string, BuchtaPlugin> = new Map();
     private registers: Map<string, string> = new Map();
-    private s: Buchta;
+    private s: Buchta | Banh
     private currentPlugin: string = "null";
 
-    constructor(server: Buchta) {
+    constructor(server: Buchta | Banh) {
         this.s = server;
     }
 

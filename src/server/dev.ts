@@ -3,6 +3,7 @@ import { BuchtaResponse } from "./response";
 import { BuchtaRouter } from "./router.js";
 import { Buchta } from "../buchta.ts";
 import { basename, dirname } from "node:path";
+import { Banh } from "../bahn.ts";
 
 const extraRoutes: Map<string, any> = new Map();
 
@@ -17,7 +18,7 @@ export const earlyHook = (build: Buchta) => {
     })
 }
 
-export default function(this: Buchta, port: number, routes: any[]) {
+export default function(this: Buchta | Banh, port: number, routes: any[]) {
     const router = new BuchtaRouter();
 
     for (const [route, func] of extraRoutes) {

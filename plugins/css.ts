@@ -1,13 +1,13 @@
 import { PluginBuilder } from "bun";
 import { readFileSync } from "fs";
 import { Buchta, BuchtaPlugin } from "../src/buchta";
-
+import { Banh } from "../src/bahn.ts";
 export function css(): BuchtaPlugin {
     return {
         name: "css",
         dependsOn: [],
         conflictsWith: [],
-        driver(this: Buchta) {
+        driver ( this: Buchta | Banh ) {
             this.pluginManager.setBundlerPlugin({
                 name: "css",
                 async setup(build: PluginBuilder) {

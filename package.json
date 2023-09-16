@@ -6,14 +6,17 @@
     "url": "https://github.com/daniel-le97/banh.git"
   },
   "scripts": {
-    "release": "bumpp && npm publish"
+    "release": "bumpp && npm publish",
+    "dev": "bun playground/index.ts"
   },
   "main": "src/buchta.ts",
   "module": "src/buchta.ts",
   "devDependencies": {
     "bumpp": "^9.2.0",
     "bun-types": "latest",
-    "hookable": "^5.5.3"
+    "elysia": "^0.6.23",
+    "hookable": "^5.5.3",
+    "vue": "^3.3.4"
   },
   "contributors": [
     "Daniel le <daniel97.le@gmail.com>"

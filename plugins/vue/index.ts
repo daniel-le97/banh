@@ -4,6 +4,7 @@ import { compileVue } from "./compiler";
 import { createSSRApp } from "vue";
 import { renderToString } from "vue/server-renderer";
 import { PluginBuilder } from "bun";
+import { Banh } from "../../src/bahn.ts";
 
 export const App = {
     components: new Map<string, any>(),
@@ -74,7 +75,7 @@ export function vue(): BuchtaPlugin {
         name: "vue",
         dependsOn: [],
         conflictsWith: [],
-        driver(this: Buchta) {
+        driver ( this: Buchta | Banh ) {
             this.addTranspiler("vue", "js", vueTranspile);
             this.addPageHandler("vue", vuePage);
             if (this.config?.ssr) {
