@@ -1,6 +1,6 @@
 {
   "name": "banh",
-  "version": "0.6.2-beta.6",
+  "version": "0.6.2-beta.7",
   "repository": {
     "type": "git",
     "url": "https://github.com/daniel-le97/banh.git"
@@ -11,7 +11,7 @@
     "release": "bumpp && npm publish",
     "dev": "bun playground/index.ts"
   },
-  "main": "./dist/index.js",
+  "main": "./dist/src/index.js",
   "types": "./dist/index.d.ts",
   "devDependencies": {
     "@types/react-dom": "latest",
