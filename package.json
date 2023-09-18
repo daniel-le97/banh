@@ -1,22 +1,31 @@
 {
   "name": "banh",
-  "version": "0.6.2-beta.3",
+  "version": "0.6.2-beta.4",
   "repository": {
     "type": "git",
     "url": "https://github.com/daniel-le97/banh.git"
   },
+  "homepage": "https://github.com/daniel-le97/banh#readme",
   "scripts": {
+    "build": "bun run built.ts",
+    "prepublishOnly": "bun run build",
     "release": "bumpp && npm publish",
     "dev": "bun playground/index.ts"
   },
-  "main": "src/buchta.ts",
-  "module": "src/buchta.ts",
+  "main": "./dist/src/banh.ts",
+  "module": "./dist/src/banh.ts",
   "devDependencies": {
+    "@types/react-dom": "latest",
     "bumpp": "^9.2.0",
     "bun-types": "latest",
     "elysia": "^0.6.23",
+    "globby": "^13.2.2",
     "hookable": "^5.5.3",
-    "vue": "^3.3.4"
+    "react": "^18.2.0",
+    "react-dom": "canary",
+    "svelte": "^4.2.0",
+    "vue": "^3.3.4",
+    "consola": "^3.2.3"
   },
   "contributors": [
     "Daniel le <daniel97.le@gmail.com>"
@@ -35,7 +44,7 @@
     "ssr"
   ],
   "license": "BSD-2-Clause",
-  "dependencies": {
-    "consola": "^3.2.3"
-  }
+  "files": [
+    "dist"
+  ]
 }
