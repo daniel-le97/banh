@@ -1,6 +1,6 @@
 {
   "name": "banh",
-  "version": "0.6.2-beta.8",
+  "version": "0.6.2-beta.9",
   "repository": {
     "type": "git",
     "url": "https://github.com/daniel-le97/banh.git"
@@ -18,10 +18,8 @@
     "bumpp": "^9.2.0",
     "bun-plugin-dts": "^0.2.0",
     "bun-types": "latest",
-    "consola": "^3.2.3",
     "elysia": "^0.6.23",
     "globby": "^13.2.2",
-    "hookable": "^5.5.3",
     "react": "^18.2.0",
     "react-dom": "canary",
     "svelte": "^4.2.0",
@@ -43,5 +41,9 @@
     "build-tool",
     "ssr"
   ],
-  "license": "BSD-2-Clause"
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "consola": "^3.2.3",
+    "hookable": "^5.5.3"
+  }
 }
